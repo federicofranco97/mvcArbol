@@ -1,0 +1,48 @@
+#superiorPersonas{
+    margin-top: 8%;
+    
+}
+
+#padrePersona{
+    float: left;
+    margin-left: 20%;
+}
+
+#madrePersona{
+   float: right;
+   margin-right: 20%;
+}
+
+#focusPersona{
+    margin-top:30%;
+    margin-left: 42%;
+}
+
+footer{
+    margin-top:60px;
+}
+
+#header1{
+    margin-left: 50%;
+}
+
+#filtroTabla
+{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 2%;
+    margin-top: 5%;
+}
+
+#myTitle
+{
+    margin-left: 38%;
+    margin-top: 5%;
+}
+
+#contenedor1
+{
+    margin-left:10%;
+    max-width: 80%;
+}
+
