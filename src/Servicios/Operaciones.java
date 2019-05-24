@@ -1,5 +1,6 @@
 package Servicios;
 
+import DTOs.PersonaDTO;
 import Models.Persona;
 import Repositorios.PersonaRepository;
 import java.util.ArrayList;
@@ -17,14 +18,16 @@ public class Operaciones {
     private PersonaRepository perRepo;
     
     private ArrayList<Persona>lista= new ArrayList<Persona>();
-
-    public ArrayList<Persona> getLista() {
-        return lista;
+    private ArrayList<PersonaDTO> aux = new ArrayList<>();
+    
+    public ArrayList<PersonaDTO> getLista() {
+       return aux;
     }
      
     //En el constructor, cuando creo una persona que tiene padre, al padre setearle
     //la persona como hijo.
-    public ArrayList<Persona> generarFamiliaPrueba(){
+    public ArrayList<PersonaDTO> generarFamiliaPrueba(){
+        
         //bisabuelos
         Persona bisa = new Persona("Don Carlos","Espinoza","m");
         Persona bisa2 = new Persona("Esmeralda","Lopez","f");
@@ -53,11 +56,15 @@ public class Operaciones {
         //Creo los hijos
         Persona hijo = new Persona("Martin","Espinoza",papa,papa2,"m");
         lista.addAll(Arrays.asList(bisa,bisa2,bisa3,bisa4,abue,abue2,abue3,abue4,papa,papa2,tio,tio2,tio3,hijo));
-        for (int i = 0; i < lista.size(); i++) {
-            lista.get(i).setId(i);
+        for (Persona persona : lista) {
+            aux.add(new PersonaDTO(persona.getNombre(),persona.getApellido(), persona.getGenero()));
         }
-        return lista;
+        for (int i = 0; i < aux.size(); i++) {
+            aux.get(i).setId(i);
+        }
+        return aux;
     }
+    
     public Persona buscarNombre(String nombre){
         for (Persona persona : lista) {
             if(persona.getNombre().equals(nombre))return persona;

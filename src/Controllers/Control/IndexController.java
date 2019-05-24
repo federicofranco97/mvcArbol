@@ -1,5 +1,6 @@
 package Controllers.Control;
 
+import DTOs.PersonaDTO;
 import Servicios.Operaciones;
 import Models.Persona;
 import java.util.ArrayList;
@@ -16,7 +17,15 @@ public class IndexController {
     @GetMapping("/")
     public ModelAndView getMain(){
         ModelAndView vista = new ModelAndView("index");
-        ArrayList<Persona> lista = operaciones.getLista();
+        ArrayList<PersonaDTO> lista = operaciones.getLista();
+        vista.addObject("listaPersonas", lista);
+        return vista;
+    }
+    
+    @GetMapping("/verIndex")
+    public ModelAndView getMain2(){
+        ModelAndView vista = new ModelAndView("index");
+        ArrayList<PersonaDTO> lista = operaciones.getLista();
         vista.addObject("listaPersonas", lista);
         return vista;
     }
