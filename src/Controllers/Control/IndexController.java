@@ -11,8 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class IndexController {
     
-    @Autowired
-    private Operaciones operaciones;
+    private Operaciones operaciones=new Operaciones();
    
     
     @GetMapping("/")
