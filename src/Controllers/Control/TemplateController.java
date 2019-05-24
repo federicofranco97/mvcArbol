@@ -1,5 +1,6 @@
 package Controllers.Control;
 
+import DTOs.PersonaDTO;
 import Models.Persona;
 import Servicios.Operaciones;
 import org.springframework.stereotype.Controller;
@@ -18,22 +19,22 @@ public class TemplateController {
     public ModelAndView getTemplate(@RequestParam("id") String id){
         //id de la persona focus
         ModelAndView vista = new ModelAndView("template");
-        Persona persona = operaciones.buscarPorId(Long.parseLong(id));
+        PersonaDTO persona = operaciones.buscarIdDTO(Long.parseLong(id));
         if(persona==null){
             vista.addObject("persona",new Persona("John","Doe","x"));
             vista.addObject("padre",new Persona("John","Doe","x"));
             vista.addObject("madre",new Persona("Jane","Doe","x"));
         }
         vista.addObject("persona", persona);
-        if(persona.getPadre()==null){
+        if(operaciones.getPadreDTO(persona)==null){
             vista.addObject("padre",new Persona("John","Doe","x"));
         }else{
-            vista.addObject("padre",persona.getPadre());
+            vista.addObject("padre",operaciones.getPadreDTO(persona));
         }
-        if(persona.getMadre()==null){
+        if(operaciones.getMadreDTO(persona)==null){
             vista.addObject("madre",new Persona("Jane","Doe","x"));
         }else{
-            vista.addObject("madre",persona.getMadre());
+            vista.addObject("madre",operaciones.getMadreDTO(persona));
         }
         return vista; 
     }
