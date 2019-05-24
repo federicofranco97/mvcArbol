@@ -13,6 +13,10 @@ public class IndexController {
     
     private Operaciones operaciones=new Operaciones();
    
+    @GetMapping("/addPersona")
+    public ModelAndView addPersona(){
+        return new ModelAndView("agregar");
+    }
     
     @GetMapping("/")
     public ModelAndView getMain(){
