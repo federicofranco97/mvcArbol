@@ -62,7 +62,45 @@ public class Operaciones {
         for (int i = 0; i < aux.size(); i++) {
             aux.get(i).setId(i);
         }
+        for (int i = 0; i < lista.size(); i++) {
+            lista.get(i).setId(i);
+        }
         return aux;
+    }
+    
+    public PersonaDTO getPadreDTO(PersonaDTO personaDTO){
+        Persona modelPersona = buscarPorId(personaDTO.getId());
+        if(modelPersona.getPadre()!=null){
+            return new PersonaDTO(modelPersona.getPadre().getNombre(),
+                    modelPersona.getPadre().getApellido(), modelPersona.getPadre().getGenero());
+        }else{
+            return null;
+        }
+    }
+    
+    public PersonaDTO getMadreDTO(PersonaDTO personaDTO){
+        Persona modelPersona = buscarPorId(personaDTO.getId());
+        if(modelPersona.getMadre()!=null){
+            return new PersonaDTO(modelPersona.getMadre().getNombre(),
+                    modelPersona.getMadre().getApellido(), modelPersona.getMadre().getGenero());
+        }else{
+            return null;
+        }
+    }
+    
+    public PersonaDTO buscarIdDTO(long id){
+        for (PersonaDTO personaDTO : aux) {
+            if(personaDTO.getId()==id) return personaDTO;
+        }
+        return null;
+    }
+    
+    public PersonaDTO buscarNombreDTO(String nombre){
+        for (PersonaDTO personaDTO : aux) {
+            if(personaDTO.getNombre().equals(nombre)) return personaDTO;
+        }
+        return null;
+        
     }
     
     public Persona buscarNombre(String nombre){
