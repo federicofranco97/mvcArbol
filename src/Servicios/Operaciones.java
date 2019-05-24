@@ -53,12 +53,21 @@ public class Operaciones {
         //Creo los hijos
         Persona hijo = new Persona("Martin","Espinoza",papa,papa2,"m");
         lista.addAll(Arrays.asList(bisa,bisa2,bisa3,bisa4,abue,abue2,abue3,abue4,papa,papa2,tio,tio2,tio3,hijo));
-        
+        for (int i = 0; i < lista.size(); i++) {
+            lista.get(i).setId(i);
+        }
         return lista;
     }
     public Persona buscarNombre(String nombre){
         for (Persona persona : lista) {
             if(persona.getNombre().equals(nombre))return persona;
+        }
+        return null;
+    }
+    
+    public Persona buscarPorId(long id){
+        for (Persona persona : lista) {
+            if(persona.getId()==id)return persona;
         }
         return null;
     }

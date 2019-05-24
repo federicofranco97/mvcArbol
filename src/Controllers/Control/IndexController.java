@@ -1,8 +1,9 @@
-package Controllers;
+package Controllers.Control;
 
 import Servicios.Operaciones;
 import Models.Persona;
 import java.util.ArrayList;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -10,7 +11,8 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class IndexController {
     
-    private Operaciones operaciones= new Operaciones();
+    @Autowired
+    private Operaciones operaciones;
    
     
     @GetMapping("/")
