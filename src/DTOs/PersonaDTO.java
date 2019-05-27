@@ -1,16 +1,26 @@
 package DTOs;
 
+import java.util.Date;
+
 public class PersonaDTO{
     
     private String nombre;
     private String apellido;
     private long id;
     private String genero;
+    private Date dob;
 
     public PersonaDTO(String nombre, String apellido, String genero) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.genero = genero;
+    }
+
+    public PersonaDTO(String nombre, String apellido, String genero, Date dob) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.genero = genero;
+        this.dob = dob;
     }
 
     public String getNombre() {
