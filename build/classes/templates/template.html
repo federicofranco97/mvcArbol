@@ -15,7 +15,7 @@
         
             <div id="superiorPersonas">
                 <div id="padrePersona">
-                    <i class="fas fa-user fa-5x"></i>
+                    <i class="fas fa-user fa-5x" th:id="${padre.getId()}" onclick="sendFocus(this)"></i>
                     <br />
                     <ul style="list-style: none;margin-left:59%;margin-top: -56%">
                         <li th:text="${padre.getNombre()}"></li>
@@ -24,7 +24,7 @@
                         
                 </div>
                 <div id="madrePersona">
-                    <i class="fas fa-user fa-5x"></i>
+                    <i class="fas fa-user fa-5x" th:id="${madre.getId()}" onclick="sendFocus(this)"></i>
                     <br />
                     <ul style="list-style: none;margin-left:59%;margin-top: -56%">
                         <li th:text="${madre.getNombre()}"></li>
@@ -44,3 +44,9 @@
         <div th:replace="layout :: footer"></div>
     </body>
 </html> 
+<script>
+    function sendFocus(sth){
+        var id=sth.id;
+        window.open("/focusPersona?id="+id,"_self");
+    }
+</script>

@@ -10,10 +10,11 @@ public class PersonaDTO{
     private String genero;
     private Date dob;
 
-    public PersonaDTO(String nombre, String apellido, String genero) {
+    public PersonaDTO(String nombre, String apellido, String genero,long id) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.genero = genero;
+        this.id=id;
     }
 
     public PersonaDTO(String nombre, String apellido, String genero, Date dob) {

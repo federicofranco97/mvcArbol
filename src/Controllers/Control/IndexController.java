@@ -2,7 +2,6 @@ package Controllers.Control;
 
 import DTOs.PersonaDTO;
 import Servicios.Operaciones;
-import Models.Persona;
 import java.util.ArrayList;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -40,23 +39,4 @@ public class IndexController {
         return vista;
     }
     
-    @GetMapping("/asd")
-    public ModelAndView getIndex(){
-        ModelAndView vista = new ModelAndView("index");
-        Persona persona=operaciones.buscarNombre("Esmeralda");
-        if(persona!=null){
-            vista.addObject("nombrePersona",persona.getNombre());
-            if(persona.getPadre()!=null){
-               vista.addObject("nombrePadre",persona.getPadre().getNombre());
-            }else{
-                vista.addObject("nombrePadre","No Registrado");
-            }
-            if(persona.getMadre()!=null){
-               vista.addObject("nombreMadre",persona.getMadre().getNombre());
-            }else{
-                vista.addObject("nombreMadre","No Registrado");
-            }
-        }
-        return vista;
-    }
 }

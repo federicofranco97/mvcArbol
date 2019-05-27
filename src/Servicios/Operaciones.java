@@ -57,7 +57,7 @@ public class Operaciones {
         Persona hijo = new Persona("Martin","Espinoza",papa,papa2,"m");
         lista.addAll(Arrays.asList(bisa,bisa2,bisa3,bisa4,abue,abue2,abue3,abue4,papa,papa2,tio,tio2,tio3,hijo));
         for (Persona persona : lista) {
-            aux.add(new PersonaDTO(persona.getNombre(),persona.getApellido(), persona.getGenero()));
+            aux.add(new PersonaDTO(persona.getNombre(),persona.getApellido(), persona.getGenero(),persona.getId()));
         }
         for (int i = 0; i < aux.size(); i++) {
             aux.get(i).setId(i);
@@ -72,7 +72,7 @@ public class Operaciones {
         Persona modelPersona = buscarPorId(personaDTO.getId());
         if(modelPersona.getPadre()!=null){
             return new PersonaDTO(modelPersona.getPadre().getNombre(),
-                    modelPersona.getPadre().getApellido(), modelPersona.getPadre().getGenero());
+                    modelPersona.getPadre().getApellido(), modelPersona.getPadre().getGenero(),modelPersona.getPadre().getId());
         }else{
             return null;
         }
@@ -82,7 +82,7 @@ public class Operaciones {
         Persona modelPersona = buscarPorId(personaDTO.getId());
         if(modelPersona.getMadre()!=null){
             return new PersonaDTO(modelPersona.getMadre().getNombre(),
-                    modelPersona.getMadre().getApellido(), modelPersona.getMadre().getGenero());
+                    modelPersona.getMadre().getApellido(), modelPersona.getMadre().getGenero(),modelPersona.getMadre().getId());
         }else{
             return null;
         }
