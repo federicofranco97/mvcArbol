@@ -13,8 +13,17 @@ public class AgregarPersona {
     
     private Operaciones operaciones=new Operaciones();
     
-    @GetMapping("/createPersona")
+    @GetMapping("/createPersona2")
     public ModelAndView addUser(@RequestParam("data")String persona){
+        ModelAndView vista = new ModelAndView("index");
+        ArrayList<PersonaDTO> lista = operaciones.getLista();
+        vista.addObject("listaPersonas", lista);
+        return vista;
+    }
+    
+    @GetMapping("/createPersona")
+    public ModelAndView addUserDTO(PersonaDTO persona){
+        operaciones.agregarPersona(persona);
         ModelAndView vista = new ModelAndView("index");
         ArrayList<PersonaDTO> lista = operaciones.getLista();
         vista.addObject("listaPersonas", lista);

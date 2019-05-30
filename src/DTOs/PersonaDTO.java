@@ -24,6 +24,8 @@ public class PersonaDTO{
         this.dob = dob;
     }
 
+    private PersonaDTO(){}
+    
     public String getNombre() {
         return nombre;
     }

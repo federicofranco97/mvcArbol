@@ -5,17 +5,14 @@
         <meta charset="UTF-8"></meta>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
         <script src="../static/js/app.js" type="text/javascript"></script>
-        
-  
-        
     </head>
     <body>
         <div th:replace="layout :: menu"></div>
-        <h1 style="margin-left: 36%">Template Focus</h1>
+        <h1 style="margin-left: 36%" onclick="goBack()">Template Focus</h1>
         
             <div id="superiorPersonas">
                 <div id="padrePersona">
-                    <i class="fas fa-user fa-5x" th:id="${padre.getId()}" onclick="sendFocus(this)"></i>
+                    <i class="fas fa-user fa-5x" th:attr="id=${padre.getId()}" onclick="sendFocus(this)"></i>
                     <br />
                     <ul style="list-style: none;margin-left:59%;margin-top: -56%">
                         <li th:text="${padre.getNombre()}"></li>
@@ -24,7 +21,7 @@
                         
                 </div>
                 <div id="madrePersona">
-                    <i class="fas fa-user fa-5x" th:id="${madre.getId()}" onclick="sendFocus(this)"></i>
+                    <i class="fas fa-user fa-5x" th:attr="id=${madre.getId()}" onclick="sendFocus(this)"></i>
                     <br />
                     <ul style="list-style: none;margin-left:59%;margin-top: -56%">
                         <li th:text="${madre.getNombre()}"></li>
@@ -47,6 +44,15 @@
 <script>
     function sendFocus(sth){
         var id=sth.id;
-        window.open("/focusPersona?id="+id,"_self");
+        if(id==0){
+            alert("No existen datos registrados para esta persona");            
+        }else{
+            window.open("/focusPersona?id="+id,"_self");
+        }   
+        
+    }
+    
+    function goBack(){
+        window.open("/","_self");
     }
 </script>

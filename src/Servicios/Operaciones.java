@@ -24,6 +24,14 @@ public class Operaciones {
        return aux;
     }
      
+    public void agregarPersona(PersonaDTO personaDTO){
+        aux.add(personaDTO);
+        Persona persona = new Persona(personaDTO.getNombre(), personaDTO.getApellido(), personaDTO.getApellido());
+        lista.add(persona);
+        setearIdsPersona(lista);
+        setearIdsPersonaDTO(aux);
+    }
+    
     //En el constructor, cuando creo una persona que tiene padre, al padre setearle
     //la persona como hijo.
     public ArrayList<PersonaDTO> generarFamiliaPrueba(){
@@ -59,17 +67,29 @@ public class Operaciones {
         for (Persona persona : lista) {
             aux.add(new PersonaDTO(persona.getNombre(),persona.getApellido(), persona.getGenero(),persona.getId()));
         }
-        for (int i = 0; i < aux.size(); i++) {
-            aux.get(i).setId(i);
+        setearIdsPersona(lista);
+        setearIdsPersonaDTO(aux);
+        return aux;        
+    }
+    
+    public void setearIdsPersona(ArrayList<Persona> list){
+        for (int i = 0; i < list.size(); i++) {
+            list.get(i).setId(i);
         }
-        for (int i = 0; i < lista.size(); i++) {
-            lista.get(i).setId(i);
+    }
+    
+    public void setearIdsPersonaDTO(ArrayList<PersonaDTO> list){
+        for (int i = 0; i < list.size(); i++) {
+            list.get(i).setId(i);
         }
-        return aux;
     }
     
     public PersonaDTO getPadreDTO(PersonaDTO personaDTO){
         Persona modelPersona = buscarPorId(personaDTO.getId());
+        if(modelPersona==null){
+            System.out.println("Devuelve null");
+           
+        }
         if(modelPersona.getPadre()!=null){
             return new PersonaDTO(modelPersona.getPadre().getNombre(),
                     modelPersona.getPadre().getApellido(), modelPersona.getPadre().getGenero(),modelPersona.getPadre().getId());

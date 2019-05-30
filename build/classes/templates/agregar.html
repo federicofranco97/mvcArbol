@@ -26,11 +26,9 @@
                 <input type="date" class="form-control"  name="dob"  id="userDOB" placeholder="Fecha nacimiento" />
             </div>
             <a href="/createPersona" class="btn btn-primary">Agregar</a>
-            <input type="button"  value="Mandar" class="btn btn-primary" onclick="sendData()" />
+            <input type="submit"  class="btn btn-primary" onclick="sendData()" />
             <input type="reset" class="btn btn-primary" value="Limpiar" />
             <a href="/" class="btn btn-primary">Volver</a>
-            
-            
         </form>
         
         <div th:replace="layout :: footer"></div>
