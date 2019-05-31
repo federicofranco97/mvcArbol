@@ -8,7 +8,7 @@
     </head>
     <body>
         <div th:replace="layout :: menu"></div>
-        <h1 style="margin-left: 36%" onclick="goBack()">Template Focus</h1>
+        <h1 style="margin-left: 36%;color:white" onclick="goBack()" >Template Focus</h1>
         
             <div id="superiorPersonas">
                 <div id="padrePersona">
@@ -45,7 +45,14 @@
     function sendFocus(sth){
         var id=sth.id;
         if(id==0){
-            alert("No existen datos registrados para esta persona");            
+            swal({
+                text: "No existen datos para esta persona!",
+                icon: "error",
+                dangerMode: true
+
+              });
+            
+            
         }else{
             window.open("/focusPersona?id="+id,"_self");
         }   
