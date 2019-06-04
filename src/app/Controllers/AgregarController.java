@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class AgregarPersona {
+public class AgregarController {
     @Autowired
     private Operaciones operaciones;
     
