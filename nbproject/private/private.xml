@@ -5,7 +5,10 @@
         <group>
             <file>file:/home/fede/NetBeansProjects/mArbol/src/templates/layout.html</file>
             <file>file:/home/fede/NetBeansProjects/mArbol/src/templates/index.html</file>
+            <file>file:/home/fede/NetBeansProjects/mArbol/src/templates/plantilla.html</file>
             <file>file:/home/fede/NetBeansProjects/mArbol/src/static/css/style.css</file>
+            <file>file:/home/fede/NetBeansProjects/mArbol/src/app/Controllers/ModificarController.java</file>
+            <file>file:/home/fede/NetBeansProjects/mArbol/src/templates/modificar.html</file>
         </group>
     </open-files>
 </project-private>

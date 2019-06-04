@@ -35,7 +35,7 @@ public class IndexController {
     
     @GetMapping("/moveTemplate")
     public ModelAndView getTemplate(){
-        ModelAndView vista = new ModelAndView("template");
+        ModelAndView vista = new ModelAndView("plantilla");
         return vista;
     }
     
