@@ -12,7 +12,7 @@
         <a href="/moveTemplate" style="margin-left: 5%">.</a>
         <div id="contenedor1">
             <input type="text" placeholder="Busqueda por Nombre" onkeypress="barFilter2()" onkeydown="barShow()" id="filtroTabla" />
-            <table class="table table-striped table-bordered" id="tablaPrincipal">
+            <table class="table table-striped table-bordered" id="tablaPrincipal" style="background-color: white;">
                 <thead>                  
                     <th scope="col">Nombre Persona</th>
                     <th scope="col">Apellido Persona</th>
@@ -26,7 +26,7 @@
                         <td th:text="${persona.getApellido()}" th:class="${persona.getId()}"  onclick="sendFocusData(this)"></td>
                         <td th:text="${persona.getGenero()}" th:class="${persona.getId()}" onclick="sendFocusData(this)"></td>
                         <td th:class="${persona.getId()}" style="text-align: center"  onclick="modificarPersona(this)">
-                            <a href="/modificar" style="color:inherit"><i class="fas fa-edit"></i></a></td>
+                            <a style="color:inherit"><i class="fas fa-edit"></i></a></td>
                         <td th:class="${persona.getId()}" style="text-align: center">
                             <a style="color:inherit" onclick="eliminarPersona(this)"><i class="fas fa-trash-alt"></i></a></td>
                     </tr>
@@ -46,6 +46,7 @@
     
     function modificarPersona(sth){
         var id = sth.className;
+        console.log(id);
         window.open("/modificar?id="+id,"_self");
     }
     
