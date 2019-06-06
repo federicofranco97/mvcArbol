@@ -19,8 +19,11 @@ public class ModificarController {
     public ModelAndView traerVista(@RequestParam("id") long id){
         PersonaDTO personaDTO=operaciones.buscarIdDTO(id);
         ModelAndView vista = new ModelAndView("modificar");
+        operaciones.agregarPaisVive(personaDTO.getPaisVive());
+        operaciones.agregarPaisNatal(personaDTO.getPaisNatal());
         vista.addObject("persona",personaDTO);
-        vista.addObject("listaPaises",operaciones.getPais());
+        vista.addObject("paisNatal",operaciones.getPaisNatal());
+        vista.addObject("paisVive",operaciones.getPaisVive());
         return vista;
     }
     
