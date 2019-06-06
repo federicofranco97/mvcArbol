@@ -2,12 +2,17 @@ package app.Models;
 
 import java.util.ArrayList;
 import java.util.Collection;
-
+//fechaFallecimiento paisNatal paisReside Domicilio
 public class Persona {
     private String nombre;
     private String apellido;
     private long id;
     private String genero;
+    private String fechaMuerte;
+    private String paisNatal;
+    private String paisVive;
+    private String domicilio;
+    private String fechaNac;
     private Persona padre;
     private Persona madre;
     private ArrayList<Persona> hijos = new ArrayList<Persona>();
@@ -45,6 +50,46 @@ public class Persona {
 
     public String getGenero() {
         return genero;
+    }
+
+    public String getFechaMuerte() {
+        return fechaMuerte;
+    }
+
+    public void setFechaMuerte(String fechaMuerte) {
+        this.fechaMuerte = fechaMuerte;
+    }
+
+    public String getPaisNatal() {
+        return paisNatal;
+    }
+
+    public void setPaisNatal(String paisNatal) {
+        this.paisNatal = paisNatal;
+    }
+
+    public String getPaisVive() {
+        return paisVive;
+    }
+
+    public void setPaisVive(String paisVive) {
+        this.paisVive = paisVive;
+    }
+
+    public String getDomicilio() {
+        return domicilio;
+    }
+
+    public void setDomicilio(String domicilio) {
+        this.domicilio = domicilio;
+    }
+
+    public String getFechaNac() {
+        return fechaNac;
+    }
+
+    public void setFechaNac(String fechaNac) {
+        this.fechaNac = fechaNac;
     }
     
     public Persona getPadre() {

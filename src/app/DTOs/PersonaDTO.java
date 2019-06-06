@@ -8,7 +8,11 @@ public class PersonaDTO{
     private String apellido;
     private long id;
     private String genero;
-    private Date dob;
+    private String fechaMuerte;
+    private String paisNatal;
+    private String paisVive;
+    private String domicilio;
+    private String fechaNac;
 
     public PersonaDTO(String nombre, String apellido, String genero,long id) {
         this.nombre = nombre;
@@ -21,7 +25,7 @@ public class PersonaDTO{
         this.nombre = nombre;
         this.apellido = apellido;
         this.genero = genero;
-        this.dob = dob;
+        
     }
 
     private PersonaDTO(){}
