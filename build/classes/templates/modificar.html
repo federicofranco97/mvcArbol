@@ -28,6 +28,28 @@
                 <label >Fecha de nacimiento</label>
                 <input type="date" class="form-control"  name="dob"  id="userDOB" placeholder="Fecha nacimiento" />
             </div>
+            <div class="form-group">
+                <label >Fecha de fallecimiento</label>
+                <input type="date" class="form-control"  name="fechaMuerte"  id="userMuerte" placeholder="Fecha fallecimiento" />
+            </div>
+            <div class="form-group">
+                <label >Domicilio</label>
+                <input type="text" class="form-control" th:value="${persona.getDomicilio()}"
+                       name="domicilio" id="userDomicilio" placeholder="m/f" />
+            </div>    
+            <select  id="PaisNatal" name="paisNatal" class="browser-default custom-select">
+                <option value="0">País natal</option>
+                <option value="1">Argentina</option>
+                <option value="2">Brasil</option>
+                <option value="3">Chile</option>
+            </select>
+            <select  id="PaisVive" name="paisVive" class="browser-default custom-select">
+                <option value="0">País donde reside</option>
+                <option value="1">Argentina</option>
+                <option value="2">Brasil</option>
+                <option value="3">Chile</option>
+            </select>
+            
             <input type="button"  class="btn btn-primary" value="Modificar" />
             <a href="/" class="btn btn-primary">Volver</a>
         </form>
