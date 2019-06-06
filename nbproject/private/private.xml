@@ -2,13 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/home/fede/NetBeansProjects/mArbol/src/templates/layout.html</file>
-            <file>file:/home/fede/NetBeansProjects/mArbol/src/templates/index.html</file>
-            <file>file:/home/fede/NetBeansProjects/mArbol/src/templates/plantilla.html</file>
-            <file>file:/home/fede/NetBeansProjects/mArbol/src/static/css/style.css</file>
-            <file>file:/home/fede/NetBeansProjects/mArbol/src/app/Controllers/ModificarController.java</file>
-            <file>file:/home/fede/NetBeansProjects/mArbol/src/templates/modificar.html</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
