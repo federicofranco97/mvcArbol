@@ -8,11 +8,9 @@
     </head>
     <body  style="background-image: url('https://mdbootstrap.com/img/Photos/Others/images/91.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
         <div th:replace="layout :: menu"></div>
-        <h1 style="margin-left: 36%;color:white" onclick="goBack()" >Template Focus</h1>
-        
-            <div id="superiorPersonas">
+        <div id="superiorPersonas" style="color: white">
                 <div id="padrePersona">
-                    <i class="fas fa-user fa-5x" th:attr="id=${padre.getId()}" onclick="sendFocus(this)"></i>
+                    <i class="fas fa-user fa-5x" th:attr="id=${padre.getId()}" onclick="sendFocus(this)" ></i>
                     <br />
                     <ul style="list-style: none;margin-left:59%;margin-top: -56%">
                         <li th:text="${padre.getNombre()}"></li>
@@ -21,7 +19,7 @@
                         
                 </div>
                 <div id="madrePersona">
-                    <i class="fas fa-user fa-5x" th:attr="id=${madre.getId()}" onclick="sendFocus(this)"></i>
+                    <i class="fas fa-user fa-5x" th:attr="id=${madre.getId()}" onclick="sendFocus(this)" ></i>
                     <br />
                     <ul style="list-style: none;margin-left:59%;margin-top: -56%">
                         <li th:text="${madre.getNombre()}"></li>
@@ -29,7 +27,7 @@
                     </ul>
                 </div>
             </div>
-            <div id="focusPersona">
+        <div id="focusPersona" style="color: white">
                 <i class="fas fa-user fa-5x"></i>
                 <ul style="list-style: none;margin-left: 8%;margin-top: -6%">
                     <li th:text="${persona.getNombre()}"></li>
