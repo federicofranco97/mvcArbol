@@ -29,6 +29,48 @@ public class PersonaDTO{
     }
 
     private PersonaDTO(){}
+
+    public String getFechaMuerte() {
+        return fechaMuerte;
+    }
+
+    public void setFechaMuerte(String fechaMuerte) {
+        this.fechaMuerte = fechaMuerte;
+    }
+
+    public String getPaisNatal() {
+        return paisNatal;
+    }
+
+    public void setPaisNatal(String paisNatal) {
+        this.paisNatal = paisNatal;
+    }
+
+    public String getPaisVive() {
+        return paisVive;
+    }
+
+    public void setPaisVive(String paisVive) {
+        this.paisVive = paisVive;
+    }
+
+    public String getDomicilio() {
+        return domicilio;
+    }
+
+    public void setDomicilio(String domicilio) {
+        this.domicilio = domicilio;
+    }
+
+    public String getFechaNac() {
+        return fechaNac;
+    }
+
+    public void setFechaNac(String fechaNac) {
+        this.fechaNac = fechaNac;
+    }
+    
+    
     
     public String getNombre() {
         return nombre;

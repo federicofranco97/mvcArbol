@@ -13,6 +13,7 @@ public class Operaciones {
     
     public Operaciones(){
         generarFamiliaPrueba();
+        llenarPaises();
     }
     @Autowired
     private PersonaRepository perRepo;

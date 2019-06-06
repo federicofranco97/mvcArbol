@@ -20,6 +20,7 @@ public class ModificarController {
         PersonaDTO personaDTO=operaciones.buscarIdDTO(id);
         ModelAndView vista = new ModelAndView("modificar");
         vista.addObject("persona",personaDTO);
+        vista.addObject("listaPaises",operaciones.getPais());
         return vista;
     }
     
