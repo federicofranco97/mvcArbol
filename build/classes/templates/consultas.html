@@ -7,12 +7,17 @@
     </head>
     <body>
         <div th:replace="layout :: menu"></div>
-            <select  id="consultasSelect" class="browser-default custom-select">
+        <div>
+            <select class="browser-default custom-select consultasSelect">
                 <option value="0">Elija una consulta</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                <option value="1">Traer Padres</option>
+                <option value="2">Traer Hijos</option>
+                <option value="3">Traer Hermano</option>                
             </select>
+            <select class="browser-default custom-select consultasSelect">
+                <option value="0">Elija una Persona</option>
+            </select>
+        </div>
         <div th:replace="layout :: footer"></div>
     </body>
 </html>
