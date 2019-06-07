@@ -96,6 +96,8 @@ public class Operaciones {
         for (PersonaDTO personaDTO : aux) {
             personaDTO.setPaisNatal("Argentina");
             personaDTO.setPaisVive("Venezuela");
+            personaDTO.setFechaNac("1989-04-24");
+            personaDTO.setDomicilio("Calle falsa 123");
         }
         return aux;        
     }
