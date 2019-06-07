@@ -1,6 +1,3 @@
-function sendFocusData(){
-    console.log("hola");
-}
 
 
 function barFilter2() {
