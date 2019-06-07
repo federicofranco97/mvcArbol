@@ -15,7 +15,7 @@
                 <option value="3">Traer Hermano</option>                
             </select>
             <select class="browser-default custom-select consultasSelect">
-                <option value="0">Elija una Persona</option>
+                <option th:each="persona : ${listaPersonas}" th:text="${persona.getNombre()}"  value="${persona.getId()}"></option>
             </select>
         </div>
         <div th:replace="layout :: footer"></div>
