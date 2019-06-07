@@ -19,11 +19,13 @@ public class AgregarController {
         ModelAndView vista = new ModelAndView("index");
         ArrayList<PersonaDTO> lista = operaciones.getLista();
         vista.addObject("listaPersonas", lista);
+        
         return vista;
     }
     
     @GetMapping("/createPersona")
     public ModelAndView addUserDTO(PersonaDTO persona){
+        System.out.println(persona.getPaisVive());
         operaciones.agregarPersona(persona);
         ModelAndView vista = new ModelAndView("index");
         ArrayList<PersonaDTO> lista = operaciones.getLista();

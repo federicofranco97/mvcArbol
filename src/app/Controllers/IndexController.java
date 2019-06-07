@@ -3,18 +3,22 @@ package app.Controllers;
 import app.DTOs.PersonaDTO;
 import app.Servicios.Operaciones;
 import java.util.ArrayList;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class IndexController {
-    
-    private Operaciones operaciones=new Operaciones();
+    @Autowired 
+    private Operaciones operaciones;
    
     @GetMapping("/addPersona")
     public ModelAndView addPersona(){
-        return new ModelAndView("agregar");
+        ModelAndView vista = new ModelAndView("agregar");
+        vista.addObject("paisNatal",operaciones.getPaisNatal());
+        vista.addObject("paisVive",operaciones.getPaisVive());
+        return vista;
     }
     
     @GetMapping("/")
