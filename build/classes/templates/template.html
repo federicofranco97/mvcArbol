@@ -6,11 +6,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
         <script src="../static/js/app.js" type="text/javascript"></script>
     </head>
-    <body  style="background-image: url('https://mdbootstrap.com/img/Photos/Others/images/91.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+    <body class="view">
         <div th:replace="layout :: menu"></div>
         <div id="superiorPersonas" style="color: white">
                 <div id="padrePersona">
-                    <i class="fas fa-user fa-5x" th:attr="id=${padre.getId()}" onclick="sendFocus(this)" ></i>
+                    <i class="fas fa-user fa-5x" th:attr="id=${padre.getId()}" onclick="sendFocus(this)" style="cursor: pointer"></i>
                     <br />
                     <ul style="list-style: none;margin-left:59%;margin-top: -56%">
                         <li th:text="${padre.getNombre()}"></li>
@@ -19,7 +19,7 @@
                         
                 </div>
                 <div id="madrePersona">
-                    <i class="fas fa-user fa-5x" th:attr="id=${madre.getId()}" onclick="sendFocus(this)" ></i>
+                    <i class="fas fa-user fa-5x" th:attr="id=${madre.getId()}" onclick="sendFocus(this)" style="cursor: pointer"></i>
                     <br />
                     <ul style="list-style: none;margin-left:59%;margin-top: -56%">
                         <li th:text="${madre.getNombre()}"></li>
