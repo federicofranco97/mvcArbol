@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="layout :: header">
+        <title>Arbol Genealogico</title>
+        <meta charset="UTF-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>        
+    </head>
+    <body  onload="secureDelete()" >
+        <div th:replace="layout :: menu"></div>
+        <form style="width: 40%;margin-left: 30%;margin-top: 8%" action="/" method="POST" hidden="">
+            <div>
+                <input type="text" class="form-control addMf" th:value="${persona.getNombre()}"
+                     name="nombre" id="Nombre" placeholder="Escriba su nombre" />
+            
+                <input type="text" th:value="${persona.getId()}" name="id" hidden=""/>
+                <input type="text" class="form-control addMf"  th:value="${persona.getApellido()}"
+                     name="apellido" id="Apellido" placeholder="Escriba su apellido" />               
+                <input type="text" class="form-control addMf" th:value="${persona.getGenero()}"
+                       name="genero" id="Genero" placeholder="m/f" />
+                <input type="text" th:value="${persona.getId()}" name="id" hidden=""/>
+                <input type="date" class="form-control addMf"  th:value="${persona.getFechaNac()}" name="fechaNac"  id="Fecha Nacimiento" placeholder="Fecha nacimiento" />
+                <input type="date" class="form-control"   th:value="${persona.getFechaMuerte()}" name="fechaMuerte"  id="userMuerte" placeholder="Fecha fallecimiento" />
+                <input type="text" class="form-control addMf" th:value="${persona.getDomicilio()}"
+                       name="domicilio" id="Domicilio" />
+                <select   id="PaisNatal" name="paisNatal" class="browser-default custom-select addMf">
+                    <option th:each="pais : ${paisNatal}" th:text="${pais}"> </option>
+                </select>
+                <select  id="PaisResidencia" name="paisVive" class="browser-default custom-select addMf">
+                    <option th:each="pais : ${paisVive}" th:text="${pais}"> </option>
+                </select>
+
+            <input type="submit"  class="btn btn-primary" value="Borrar" id="deletear" />
+            <a href="/" class="btn btn-primary" id="volver">Volver</a>
+        </div>
+        </form>
+        <div th:replace="layout :: footer"></div>
+    </body>
+</html>
+<script>
+    function secureDelete(){
+        var quiereDelete=false;
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this imaginary file!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+                quiereDelete=true;
+                swal("La persona se borro con exito!", {
+                    icon: "success"
+                });
+                setTimeout("delayMove()",1000);
+            } else {
+                quiereDelete=false;
+                swal("Borrar persona cancelado!",{icon:"error"});
+                setTimeout("delayMove2()",1000);
+            }
+        });        
+    }
+    
+    function delayMove(){
+        document.getElementById("deletear").click();
+    }
+    function delayMove2(){
+        document.getElementById("volver").click();
+    }
+</script>

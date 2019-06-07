@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -42,5 +44,14 @@ public class IndexController {
         ModelAndView vista = new ModelAndView("plantilla");
         return vista;
     }
+    
+    @GetMapping("/eliminar")
+    public ModelAndView borrarPersona(@RequestParam("id")long id){
+        ModelAndView vista = new ModelAndView("eliminar");        
+        vista.addObject("persona", operaciones.buscarIdDTO(id));
+        return vista;
+    }
+    
+    
     
 }
