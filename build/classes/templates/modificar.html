@@ -8,25 +8,28 @@
     <body  style="color:white;background-image: url('https://mdbootstrap.com/img/Photos/Others/images/91.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
         <div th:replace="layout :: menu"></div>
         
-        <form style="width: 40%;margin-left: 30%;margin-top: 8%">
+        <form style="width: 40%;margin-left: 30%;margin-top: 8%" action="/modificarPersona">
             <div class="form-group">
               <label >Nombre de la persona</label>
-              <input type="text" class="form-control" th:value="${persona.getNombre()}"
-                     name="nombre" id="userName" placeholder="Escriba su nombre" />
+              <input type="text" class="form-control addMf" th:value="${persona.getNombre()}"
+                     name="nombre" id="Nombre" placeholder="Escriba su nombre" />
+            </div>
+            <div>
+                <input type="text" th:value="${persona.getId()}" name="id" hidden=""/>
             </div>
             <div class="form-group">
                 <label >Apellido de la persona</label>
-              <input type="text" class="form-control"  th:value="${persona.getApellido()}"
-                     name="apellido" id="userSurame" placeholder="Escriba su apellido" />
+              <input type="text" class="form-control addMf"  th:value="${persona.getApellido()}"
+                     name="apellido" id="Apellido" placeholder="Escriba su apellido" />
             </div>
             <div class="form-group">
                 <label >Genero de la persona</label>
-                <input type="text" class="form-control" th:value="${persona.getGenero()}"
-                       name="genero" id="userGenero" placeholder="m/f" />
+                <input type="text" class="form-control addMf" th:value="${persona.getGenero()}"
+                       name="genero" id="Genero" placeholder="m/f" />
             </div>
             <div class="form-group">
                 <label >Fecha de nacimiento</label>
-                <input type="date" class="form-control"  th:value="${persona.getFechaNac()}" name="fechaNac"  id="userDOB" placeholder="Fecha nacimiento" />
+                <input type="date" class="form-control addMf"  th:value="${persona.getFechaNac()}" name="fechaNac"  id="Fecha Nacimiento" placeholder="Fecha nacimiento" />
             </div>
             <div class="form-group">
                 <label >Fecha de fallecimiento</label>
@@ -34,22 +37,22 @@
             </div>
             <div class="form-group">
                 <label >Domicilio</label>
-                <input type="text" class="form-control" th:value="${persona.getDomicilio()}"
-                       name="domicilio" id="userDomicilio" />
+                <input type="text" class="form-control addMf" th:value="${persona.getDomicilio()}"
+                       name="domicilio" id="Domicilio" />
             </div>    
             <div class="form-group">
                 <label >Pais Natal</label>
-                <select   id="PaisNatal" name="paisNatal" class="browser-default custom-select">
+                <select   id="PaisNatal" name="paisNatal" class="browser-default custom-select addMf">
                     <option th:each="pais : ${paisNatal}" th:text="${pais}"> </option>
                 </select>
             </div>
             <div class="form-group">
                 <label >Pais de Residencia</label>
-                <select  id="PaisVive" name="paisVive" class="browser-default custom-select">
+                <select  id="PaisResidencia" name="paisVive" class="browser-default custom-select addMf">
                     <option th:each="pais : ${paisVive}" th:text="${pais}"> </option>
                 </select>
             </div>
-            <input type="button"  class="btn btn-primary" value="Modificar" />
+            <input type="submit"  class="btn btn-primary" value="Modificar" onmouseover="validarCamposStr()" />
             <a href="/" class="btn btn-primary">Volver</a>
         </form>
         
@@ -57,5 +60,23 @@
     </body>
 </html>
 <script>
-
+    function validarCamposStr(){
+        var list = document.getElementsByClassName("addMf");
+        var check=true;
+        var i=0;
+        while (check) {
+            if(list[i].value===null || list[i].value===" " || list[i].value===""){
+                swal({
+                    title: "Campo Incompleto!",
+                    text:"El campo es: "+list[i].id,
+                    icon: "error"
+                  });
+                list[i].focus();
+                check=false;
+            }
+            i++;
+            if(i===list.length)check=false;
+        }   
+        
+    }
 </script>

@@ -30,6 +30,18 @@ public class PersonaDTO{
 
     private PersonaDTO(){}
 
+    public void actualizar(PersonaDTO personaDTO){
+        this.nombre=personaDTO.getNombre();
+        this.apellido=personaDTO.getApellido();
+        this.id=personaDTO.getId();
+        this.genero=personaDTO.getGenero();
+        this.fechaMuerte=personaDTO.getFechaMuerte();
+        this.fechaNac=personaDTO.getFechaNac();
+        this.paisVive=personaDTO.getPaisVive();
+        this.paisNatal=personaDTO.getPaisNatal();
+        this.domicilio=personaDTO.getDomicilio();
+    }
+    
     public String getFechaMuerte() {
         return fechaMuerte;
     }

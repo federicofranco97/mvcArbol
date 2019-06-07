@@ -3,6 +3,7 @@ package app.Controllers;
 
 import app.DTOs.PersonaDTO;
 import app.Servicios.Operaciones;
+import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,4 +28,13 @@ public class ModificarController {
         return vista;
     }
     
+    @GetMapping("/modificarPersona")
+    public ModelAndView modifP(PersonaDTO personaDTO){
+        operaciones.actualizarPersona(personaDTO);
+        ModelAndView vista = new ModelAndView("index");
+        ArrayList<PersonaDTO> lista = operaciones.getLista();
+        vista.addObject("listaPersonas", lista);
+        
+        return vista;
+    }
 }

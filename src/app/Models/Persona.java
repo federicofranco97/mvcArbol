@@ -1,5 +1,6 @@
 package app.Models;
 
+import app.DTOs.PersonaDTO;
 import java.util.ArrayList;
 import java.util.Collection;
 //fechaFallecimiento paisNatal paisReside Domicilio
@@ -32,6 +33,18 @@ public class Persona {
         this.genero=genero;
     }
 
+    public void actualizar(PersonaDTO personaDTO){
+        this.nombre=personaDTO.getNombre();
+        this.apellido=personaDTO.getApellido();
+        this.id=personaDTO.getId();
+        this.genero=personaDTO.getGenero();
+        this.fechaMuerte=personaDTO.getFechaMuerte();
+        this.fechaNac=personaDTO.getFechaNac();
+        this.paisVive=personaDTO.getPaisVive();
+        this.paisNatal=personaDTO.getPaisNatal();
+        this.domicilio=personaDTO.getDomicilio();
+    }
+    
     public String getApellido() {
         return apellido;
     }

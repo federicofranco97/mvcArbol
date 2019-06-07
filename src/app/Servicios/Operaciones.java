@@ -47,7 +47,16 @@ public class Operaciones {
         
     }
     
-    
+    public void actualizarPersona(PersonaDTO personaDTO){
+        System.out.println(lista.get((int)personaDTO.getId()).getNombre());
+        System.out.println(aux.get((int)personaDTO.getId()).getNombre());
+        aux.get((int)personaDTO.getId()).actualizar(personaDTO);
+        lista.get((int)personaDTO.getId()).actualizar(personaDTO);  
+        System.out.println("Entro metodo de actualizar");
+        System.out.println(lista.get((int)personaDTO.getId()).getNombre());
+        System.out.println(aux.get((int)personaDTO.getId()).getNombre());
+    }
+        
     public void agregarPersona(PersonaDTO personaDTO){
         aux.add(personaDTO);
         Persona persona = new Persona(personaDTO.getNombre(), personaDTO.getApellido(), personaDTO.getApellido());
