@@ -39,20 +39,6 @@
 </html>
 
 <script>
-    function sendFocusData(sth){
-        var id=sth.className;
-        window.open("/focusPersona?id="+id,"_self");
-    }
     
-    function modificarPersona(sth){
-        var id = sth.className;
-        console.log(id);
-        window.open("/modificar?id="+id,"_self");
-    }
-    
-    function eliminarPersona(sth){
-        var id = sth.parentNode.className;
-        window.open("/eliminar?id="+id,"_self");
-    }
 
 </script>

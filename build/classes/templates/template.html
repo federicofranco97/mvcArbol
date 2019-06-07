@@ -10,7 +10,7 @@
         <div th:replace="layout :: menu"></div>
         <div id="superiorPersonas" style="color: white">
                 <div id="padrePersona">
-                    <i class="fas fa-user fa-5x" th:attr="id=${padre.getId()}" onclick="sendFocus(this)" style="cursor: pointer"></i>
+                    <i class="fas fa-user fa-5x" th:attr="id=${padre.getId()}" onclick="sendFocus2(this)" style="cursor: pointer"></i>
                     <br />
                     <ul style="list-style: none;margin-left:59%;margin-top: -56%">
                         <li th:text="${padre.getNombre()}"></li>
@@ -19,7 +19,7 @@
                         
                 </div>
                 <div id="madrePersona">
-                    <i class="fas fa-user fa-5x" th:attr="id=${madre.getId()}" onclick="sendFocus(this)" style="cursor: pointer"></i>
+                    <i class="fas fa-user fa-5x" th:attr="id=${madre.getId()}" onclick="sendFocus2(this)" style="cursor: pointer"></i>
                     <br />
                     <ul style="list-style: none;margin-left:59%;margin-top: -56%">
                         <li th:text="${madre.getNombre()}"></li>
@@ -39,25 +39,4 @@
         <div th:replace="layout :: footer"></div>
     </body>
 </html> 
-<script>
-    function sendFocus(sth){
-        var id=sth.id;
-        if(id==0){
-            swal({
-                text: "No existen datos para esta persona!",
-                icon: "error",
-                dangerMode: true
 
-              });
-            
-            
-        }else{
-            window.open("/focusPersona?id="+id,"_self");
-        }   
-        
-    }
-    
-    function goBack(){
-        window.open("/","_self");
-    }
-</script>

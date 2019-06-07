@@ -58,24 +58,3 @@
         <div th:replace="layout :: footer"></div>
     </body>
 </html>
-<script>
-    function validarCamposStr(){
-        var list = document.getElementsByClassName("addIn");
-        var check=true;
-        var i=0;
-        while (check) {
-            if(list[i].value===null || list[i].value===" " || list[i].value===""){
-                swal({
-                    title: "Campo Incompleto!",
-                    text:"El campo es: "+list[i].id,
-                    icon: "error"
-                  });
-                list[i].focus();
-                check=false;
-            }
-            i++;
-            if(i===list.length)check=false;
-        }   
-        
-    }
-</script>

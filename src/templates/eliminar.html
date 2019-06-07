@@ -5,7 +5,7 @@
         <meta charset="UTF-8"></meta>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>        
     </head>
-    <body class="view">
+    <body class="view" onload="secureDelete()">
         <div th:replace="layout :: menu"></div>
         <form style="width: 40%;margin-left: 30%;margin-top: 8%" action="/" method="POST" hidden="">
             <div>
@@ -36,35 +36,3 @@
         <div th:replace="layout :: footer"></div>
     </body>
 </html>
-<script>
-    function secureDelete(){
-        var quiereDelete=false;
-        swal({
-            title: "Are you sure?",
-            text: "Once deleted, you will not be able to recover this imaginary file!",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true
-        })
-        .then((willDelete) => {
-            if (willDelete) {
-                quiereDelete=true;
-                swal("La persona se borro con exito!", {
-                    icon: "success"
-                });
-                setTimeout("delayMove()",1000);
-            } else {
-                quiereDelete=false;
-                swal("Borrar persona cancelado!",{icon:"error"});
-                setTimeout("delayMove2()",1000);
-            }
-        });        
-    }
-    
-    function delayMove(){
-        document.getElementById("deletear").click();
-    }
-    function delayMove2(){
-        document.getElementById("volver").click();
-    }
-</script>
