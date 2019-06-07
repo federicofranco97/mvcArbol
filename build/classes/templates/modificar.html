@@ -42,14 +42,16 @@
             </div>    
             <div class="form-group">
                 <label >Pais Natal</label>
-                <select   id="PaisNatal" name="paisNatal" class="browser-default custom-select addMf">
-                    <option th:each="pais : ${paisNatal}" th:text="${pais}"> </option>
+                <label hidden="" th:text="${persona.getPaisNatal()}" id="lblNatal"></label>
+                <select  id="PaisNatal" name="paisNatal" th:value="${persona.getPaisNatal()}" class="browser-default custom-select addMf">
+                    <option th:each="pais : ${paisNatal}" th:text="${pais}" th:value="${pais}"> </option>
                 </select>
             </div>
             <div class="form-group">
                 <label >Pais de Residencia</label>
-                <select  id="PaisResidencia" name="paisVive" class="browser-default custom-select addMf">
-                    <option th:each="pais : ${paisVive}" th:text="${pais}"> </option>
+                <label hidden="" th:text="${persona.getPaisVive()}" id="lblVive"></label>
+                <select  id="PaisVive" name="paisVive" th:value="${persona.getPaisVive()}" class="browser-default custom-select addMf">
+                    <option th:each="pais : ${paisVive}" th:text="${pais}" th:value="${pais}"> </option>
                 </select>
             </div>
             <input type="submit"  class="btn btn-primary" value="Modificar" onmouseover="validarCamposStr2()" />
@@ -58,4 +60,8 @@
         
         <div th:replace="layout :: footer"></div>
     </body>
+    <script>
+        document.getElementById("PaisNatal").value=(document.getElementById("lblNatal").innerText);
+        document.getElementById("PaisVive").value=(document.getElementById("lblVive").innerText);
+    </script>
 </html>
