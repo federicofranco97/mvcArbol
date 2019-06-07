@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head th:replace="layout :: header">
-        <title>Arbol Genealogico</title>
-        <meta charset="UTF-8"></meta>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>        
     </head>
     <body class="view">
         <div th:replace="layout :: menu"></div>
-        <div>
-            <select class="browser-default custom-select consultasSelect">
-                <option value="0">Elija una consulta</option>
-                <option value="1">Traer Padres</option>
-                <option value="2">Traer Hijos</option>
-                <option value="3">Traer Hermano</option>                
+        <h1 id="tituloConsultas" style="color: white;margin-top: 2%;margin-left: 42%;">Menu Consultas</h1>
+        <div class="form-group">
+            <select class="browser-default custom-select consultasSelect form-control" id="consultaIn">
+                <option th:each="consulta:${listaConsultas}"  th:value="${consulta.getValor()}"
+                                    th:text="${consulta.getDescripcion()}"></option>             
             </select>
-            <select class="browser-default custom-select consultasSelect">
-                <option th:each="persona : ${listaPersonas}" th:text="${persona.getNombre()}"  value="${persona.getId()}"></option>
+            <select class="browser-default custom-select form-control consultasSelect" id="personaIn">
+                <option th:each="persona : ${listaPersonas}" th:text="${persona.getNombre()}"  th:value="${persona.getId()}"></option>
             </select>
-        </div>
+            <button class="btn btn-primary btnConsultar" onclick="hacerConsulta()">Consultar</button>
+       </div>
         <div th:replace="layout :: footer"></div>
     </body>
 </html>
+<script>
+    function hacerConsulta(){
+        var consulta=document.getElementById("consultaIn").value;
+        var persona=document.getElementById("personaIn").value;
+        var data=consulta+" "+persona;
+        window.open("/resultadoConsulta?data="+data,"_self");
+    }
+</script>

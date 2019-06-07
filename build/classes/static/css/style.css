@@ -1,3 +1,9 @@
+.btnConsultar
+{
+ margin-top: 3.5%;   
+ margin-left: 25%;
+}
+
 #tablaPrincipal
 {
     text-align: center;
@@ -39,7 +45,6 @@ body {
     width: 50%;
     margin-left: 25%;
     margin-top: 4%;
-    margin-bottom: 1%;
 }
 
 #addForm{

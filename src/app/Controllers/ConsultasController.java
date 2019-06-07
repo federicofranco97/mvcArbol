@@ -1,11 +1,10 @@
 package app.Controllers;
 
-import app.DTOs.PersonaDTO;
 import app.Servicios.Operaciones;
-import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -17,8 +16,19 @@ public class ConsultasController {
     @GetMapping("/consultas")
     public ModelAndView traerConsultas(){
         ModelAndView vista = new ModelAndView("consultas");
-        ArrayList<PersonaDTO> lista = operaciones.getLista();
-        vista.addObject("listaPersonas", lista);
+        vista.addObject("listaPersonas", operaciones.getLista());
+        vista.addObject("listaConsultas", operaciones.getListaConsultas());
         return vista;
     }
+    
+    @GetMapping("/resultadoConsulta")
+    public ModelAndView mostrarResultado(@RequestParam("data")String data){
+        ModelAndView vista = new ModelAndView("resultadoConsulta");
+        String [] aux=data.split(" ");
+        String consulta=aux[0];
+        long id=Long.parseLong(aux[1]);
+        System.out.println(consulta+" "+id);
+        return vista;
+    }
+
 }

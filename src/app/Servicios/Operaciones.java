@@ -1,6 +1,7 @@
 package app.Servicios;
 
 import app.DTOs.PersonaDTO;
+import app.Models.Consulta;
 import app.Models.Persona;
 import app.Repository.PersonaRepository;
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ public class Operaciones {
     public Operaciones(){
         generarFamiliaPrueba();
         llenarPaises();
+        llenarConsultas();
     }
     @Autowired
     private PersonaRepository perRepo;
@@ -22,12 +24,30 @@ public class Operaciones {
     private ArrayList<PersonaDTO> aux = new ArrayList<>();
     private ArrayList<String> paisesNatal = new ArrayList<>();
     private ArrayList<String> paisesVive = new ArrayList<>();
+    private ArrayList<Consulta> listaConsultas = new ArrayList<>();
     
     public ArrayList<PersonaDTO> getLista() {
        return aux;
     }
     public ArrayList<String> getPaisVive(){
         return paisesVive;
+    }
+
+    public ArrayList<Consulta> getListaConsultas() {
+        return listaConsultas;
+    }
+
+    public void setListaConsultas(ArrayList<Consulta> listaConsultas) {
+        this.listaConsultas = listaConsultas;
+    }
+    
+    public void llenarConsultas(){
+        listaConsultas.add(new Consulta("getHijos", "Traer hijos"));
+        listaConsultas.add(new Consulta("getHermanos", "Traer hermanos"));
+        listaConsultas.add(new Consulta("getTios", "Traer Tios"));
+        listaConsultas.add(new Consulta("getAbuelos", "Traer Abuelos"));
+        listaConsultas.add(new Consulta("getPrimos", "Traer Primos"));
+        
     }
     
     public void agregarPaisVive(String pais){
