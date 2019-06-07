@@ -10,26 +10,26 @@
         <div th:replace="layout :: menu"></div>
         <div id="superiorPersonas" style="color: white">
                 <div id="padrePersona">
-                    <i class="fas fa-user fa-5x" th:attr="id=${padre.getId()}" onclick="sendFocus2(this)" style="cursor: pointer"></i>
+                    <img src="../static/css/hombree.png" style="height: 120px ; width: 120px ; cursor: pointer" th:attr="id=${padre.getId()}" onclick="sendFocus2(this)" /> 
                     <br />
-                    <ul style="list-style: none;margin-left:59%;margin-top: -56%">
+                    <ul style="list-style: none;margin-left:65%;margin-top: -56%">
                         <li th:text="${padre.getNombre()}"></li>
                         <li th:text="${padre.getApellido()}"></li>
                     </ul>
                         
                 </div>
                 <div id="madrePersona">
-                    <i class="fas fa-user fa-5x" th:attr="id=${madre.getId()}" onclick="sendFocus2(this)" style="cursor: pointer"></i>
+                    <img src="../static/css/mujer.png" style="height: 120px ; width: 120px ; cursor: pointer" th:attr="id=${madre.getId()}" onclick="sendFocus2(this)" />
                     <br />
-                    <ul style="list-style: none;margin-left:59%;margin-top: -56%">
+                    <ul style="list-style: none;margin-left:65%;margin-top: -56%">
                         <li th:text="${madre.getNombre()}"></li>
                         <li th:text="${madre.getApellido()}"></li>                    
                     </ul>
                 </div>
             </div>
         <div id="focusPersona" style="color: white">
-                <i class="fas fa-user fa-5x"></i>
-                <ul style="list-style: none;margin-left: 8%;margin-top: -6%">
+                <img src="../static/css/hombree.png" style="height: 120px ; width: 120px ; cursor: pointer ; margin-left: -5%" />
+                <ul style="list-style: none;margin-left: 8%;margin-top: -11%">
                     <li th:text="${persona.getNombre()}"></li>
                     <li th:text="${persona.getApellido()}"></li>
                 </ul>
