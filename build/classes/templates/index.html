@@ -16,7 +16,7 @@
                 <thead>                  
                     <th scope="col">Nombre Persona</th>
                     <th scope="col">Apellido Persona</th>
-                    <th scope="col">Genero Persona</th>
+                    <th scope="col">Fecha Nacimiento</th>
                     <th scope="col"  style="text-align: center">Editar Persona</th>
                     <th scope="col"  style="text-align: center">Borrar Persona</th>                  
                 </thead>
@@ -24,7 +24,7 @@
                     <tr th:each="persona : ${listaPersonas}" style="cursor: pointer">
                         <td th:text="${persona.getNombre()}" th:class="${persona.getId()}" onclick="sendFocusData(this)"></td>
                         <td th:text="${persona.getApellido()}" th:class="${persona.getId()}"  onclick="sendFocusData(this)"></td>
-                        <td th:text="${persona.getGenero()}" th:class="${persona.getId()}" onclick="sendFocusData(this)"></td>
+                        <td th:text="${persona.getFechaNac()}" th:class="${persona.getId()}" onclick="sendFocusData(this)"></td>
                         <td th:class="${persona.getId()}" style="text-align: center"  onclick="modificarPersona(this)">
                             <a style="color:inherit"><i class="fas fa-edit"></i></a></td>
                         <td th:class="${persona.getId()}" style="text-align: center">

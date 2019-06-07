@@ -21,18 +21,18 @@ public class TemplateController {
         ModelAndView vista = new ModelAndView("template");
         PersonaDTO persona = operaciones.buscarIdDTO(Long.parseLong(id));
         if(persona==null){
-            vista.addObject("persona",new Persona("John","Doe","x"));
-            vista.addObject("padre",new Persona("John","Doe","x"));
-            vista.addObject("madre",new Persona("Jane","Doe","x"));
+            vista.addObject("persona",new Persona("No","Data","x"));
+            vista.addObject("padre",new Persona("No","Data","x"));
+            vista.addObject("madre",new Persona("No","Data","x"));
         }else{
             vista.addObject("persona", persona);
             if(operaciones.getPadreDTO(persona)==null){
-                vista.addObject("padre",new Persona("John","Doe","x"));
+                vista.addObject("padre",new Persona("No","Data","x"));
             }else{
                 vista.addObject("padre",operaciones.getPadreDTO(persona));
             }
             if(operaciones.getMadreDTO(persona)==null){
-                vista.addObject("madre",new Persona("Jane","Doe","x"));
+                vista.addObject("madre",new Persona("No","Data","x"));
             }else{
                 vista.addObject("madre",operaciones.getMadreDTO(persona));
             }
