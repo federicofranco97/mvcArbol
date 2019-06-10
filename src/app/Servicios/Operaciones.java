@@ -49,6 +49,13 @@ public class Operaciones {
         listaConsultas.add(new Consulta("getPrimos", "Traer Primos"));
         
     }
+    public String generarFechaRandom(){
+        int año = (int)(Math.random()* 89) + 1930;
+        int mes = (int)(Math.random()* 12) + 1;
+        int dia = (int)(Math.random()* 20) + 1 ;
+        String aux = año + "-" + mes + "-" + dia;
+        return aux;
+    }
     
     public void agregarPaisVive(String pais){
         paisesVive.add(0,pais);
@@ -126,7 +133,7 @@ public class Operaciones {
         for (PersonaDTO personaDTO : aux) {
             personaDTO.setPaisNatal("Argentina");
             personaDTO.setPaisVive("Venezuela");
-            personaDTO.setFechaNac("1989-04-24");
+            personaDTO.setFechaNac(generarFechaRandom());
             personaDTO.setDomicilio("Calle falsa 123");
         }
         return aux;        
