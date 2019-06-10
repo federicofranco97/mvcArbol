@@ -53,7 +53,19 @@ public class Operaciones {
         int año = (int)(Math.random()* 89) + 1930;
         int mes = (int)(Math.random()* 12) + 1;
         int dia = (int)(Math.random()* 20) + 1 ;
-        String aux = año + "-" + mes + "-" + dia;
+        String aux="";
+        if(mes>10 && dia >10){
+            aux = año + "-" + mes + "-" + dia;
+        }
+        if(mes>10 && dia <10){
+            aux = año + "-" + mes + "-0" + dia;
+        }
+        if(mes<10 && dia >10){
+            aux = año + "-0" + mes + "-" + dia;
+        }else{
+            aux = año + "-0" + mes + "-0" + dia;   
+        }
+        
         return aux;
     }
     
@@ -144,7 +156,7 @@ public class Operaciones {
             list.get(i).setId(i);
         }
     }
-    
+      
     public void setearIdsPersonaDTO(ArrayList<PersonaDTO> list){
         for (int i = 0; i < list.size(); i++) {
             list.get(i).setId(i);
