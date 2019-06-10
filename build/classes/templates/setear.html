@@ -7,7 +7,16 @@
     </head>
     <body class="view">
         <div th:replace="layout :: menu"></div>
-        <h1>Contenido de vista de setear relaciones</h1>
+        <select class="browser-default custom-select form-control consultasSelect" id="personaIn">
+                <option th:each="persona : ${listaPersonas}" th:text="${persona.getNombre()}"  th:value="${persona.getId()}"></option>
+        </select>
+        <select class="browser-default custom-select form-control consultasSelect" id="personaIn">
+                <option>Valor</option>
+        </select>
+        <select class="browser-default custom-select form-control consultasSelect" id="personaIn">
+                <option th:each="persona : ${listaPersonas}" th:text="${persona.getNombre()}"  th:value="${persona.getId()}"></option>
+        </select>
+        <button class="btn btn-primary btnConsultar">Setear</button>
         <div th:replace="layout :: footer"></div>
     </body>
 </html>
