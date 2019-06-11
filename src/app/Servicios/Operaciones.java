@@ -53,7 +53,7 @@ public class Operaciones {
         int año = (int)(Math.random()* 89) + 1930;
         int mes = (int)(Math.random()* 12) + 1;
         int dia = (int)(Math.random()* 20) + 1 ;
-        String aux="";
+        String aux= año + "-" + mes + "-" + dia;
         if(mes>10 && dia >10){
             aux = año + "-" + mes + "-" + dia;
         }
@@ -62,10 +62,10 @@ public class Operaciones {
         }
         if(mes<10 && dia >10){
             aux = año + "-0" + mes + "-" + dia;
-        }else{
+        }
+        if(mes<10 && dia <10){
             aux = año + "-0" + mes + "-0" + dia;   
         }
-        
         return aux;
     }
     
