@@ -178,9 +178,8 @@ public class Operaciones {
         if(modelPersona.getMadre()!=null){
             return new PersonaDTO(modelPersona.getMadre().getNombre(),
                     modelPersona.getMadre().getApellido(), modelPersona.getMadre().getGenero(),modelPersona.getMadre().getId());
-        }else{
-            return null;
         }
+        return null;
     }
     
     public PersonaDTO buscarIdDTO(long id){
