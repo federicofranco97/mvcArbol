@@ -5,7 +5,8 @@
     </head>
     <body class="view">
         <div th:replace="layout :: menu"></div>
-        <h1 id="tituloConsultas" style="color: white;margin-top: 2%;margin-left: 42%;">Menu Consultas</h1>
+        <img src="../static/css/menucon.png" style="height: 150px ; width: 480px ; margin-left: 30%"/>
+        <!--<h1 id="tituloConsultas" style="color: white;margin-top: 2%;margin-left: 42%;">Menu Consultas</h1>-->
         <div class="form-group">
             <select class="browser-default custom-select consultasSelect form-control" id="consultaIn">
                 <option th:each="consulta:${listaConsultas}"  th:value="${consulta.getValor()}"
