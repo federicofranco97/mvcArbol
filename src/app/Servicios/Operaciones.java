@@ -2,11 +2,15 @@ package app.Servicios;
 
 import app.DTOs.PersonaDTO;
 import app.Models.Consulta;
+import app.Models.EdadModel;
 import app.Models.Persona;
 import app.Models.Seteo;
 import app.Repository.PersonaRepository;
+import static java.time.temporal.ChronoUnit.YEARS;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +22,7 @@ public class Operaciones {
         llenarPaises();
         llenarConsultas();
         llenarListaComandos();
+        calcularPromediosM();
     }
     @Autowired
     private PersonaRepository perRepo;
@@ -28,6 +33,15 @@ public class Operaciones {
     private ArrayList<String> paisesVive = new ArrayList<>();
     private ArrayList<Consulta> listaConsultas = new ArrayList<>();
     private ArrayList<Seteo> listaComandos = new ArrayList<>();
+    private ArrayList<Integer> listaRangos = new ArrayList<>();
+
+    public ArrayList<Integer> getListaRangos() {
+        return listaRangos;
+    }
+
+    public void setListaRangos(ArrayList<Integer> listaRangos) {
+        this.listaRangos = listaRangos;
+    }
     
     public ArrayList<PersonaDTO> getLista() {
        return aux;
@@ -86,6 +100,29 @@ public class Operaciones {
             list2.add(aux2);
         }
         return list2;
+    }
+    
+    public void calcularPromediosM(){
+        for (PersonaDTO personaDTO : aux) {
+            asignarRango(personaDTO);
+        }
+    }
+    
+    public void asignarRango(PersonaDTO personaDTO){
+        //boolean true es inmigrante
+        boolean aux=true;
+        if(personaDTO.getPaisNatal().equals(personaDTO.getPaisVive()))aux=false;
+        int edad=(int) calcularEdad(personaDTO);
+        if(aux)listaRangos.add((edad));  
+    }
+    
+    public long calcularEdad(PersonaDTO personaDTO){
+        Date hoy=new Date(2019, 6, 13);
+        String [] list=personaDTO.getFechaNac().split("-");
+        Date birth=new Date(Integer.parseInt(list[0]),Integer.parseInt(list[1]),Integer.parseInt(list[2]));
+        long diffInMillies = Math.abs(birth.getTime() - hoy.getTime());
+        long diff = (TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS))/365;
+        return diff;
     }
     
     public ArrayList<PersonaDTO> getHermanosDTO(PersonaDTO personaDTO){
