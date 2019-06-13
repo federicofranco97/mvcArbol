@@ -79,6 +79,61 @@ public class Operaciones {
         return list2;
     }
     
+    public ArrayList<PersonaDTO> getTiosDTO(PersonaDTO personaDTO){
+        Persona aux=buscarPorId(personaDTO.getId()).getPadre().getPadre();
+        Persona aux3=buscarPorId(personaDTO.getId()).getPadre().getMadre();
+        Persona aux4=buscarPorId(personaDTO.getId()).getMadre().getMadre();
+        Persona aux5=buscarPorId(personaDTO.getId()).getMadre().getPadre();
+        ArrayList<Persona> list = aux.getHijos();
+        ArrayList<Persona> list3 = aux3.getHijos();
+        ArrayList<Persona> list4 = aux4.getHijos();
+        ArrayList<Persona> list5 = aux5.getHijos();
+        ArrayList<PersonaDTO> list2 = new ArrayList<>();
+        if(aux ==null || aux3 == null){
+            return list2;
+        }
+        for (Persona persona : list) {
+            PersonaDTO aux2 = new PersonaDTO();
+            aux2.convertir(persona);
+            list2.add(aux2);
+            
+        }
+        for (Persona persona : list3) {
+            PersonaDTO aux2 = new PersonaDTO();
+            aux2.convertir(persona);
+            if(!existe(list2, aux2)){
+                list2.add(aux2);
+            }
+        }
+        for (Persona persona : list4) {
+            PersonaDTO aux2 = new PersonaDTO();
+            aux2.convertir(persona);
+            if(!existe(list2, aux2)){
+                list2.add(aux2);
+            }
+        }
+        for (Persona persona : list5) {
+            PersonaDTO aux2 = new PersonaDTO();
+            aux2.convertir(persona);
+            if(!existe(list2, aux2)){
+                list2.add(aux2);
+            }
+        }
+        int idPad=(int)getPadreDTO(personaDTO).getId();
+        int idMad=(int)getMadreDTO(personaDTO).getId();
+        for (int i = 0; i < list2.size(); i++) {
+            if(list2.get(i).getId() == idPad || list2.get(i).getId() == idMad)list2.remove(i);
+        }
+        return list2;
+    }
+    
+    public boolean existe(ArrayList<PersonaDTO> list,PersonaDTO personaDTO){
+        for (PersonaDTO dto : list) {
+            if(dto.getId() == personaDTO.getId())return true;
+        }
+        return false;
+    }
+    
     public void llenarConsultas(){
         listaConsultas.add(new Consulta("getHijos", "Traer hijos"));
         listaConsultas.add(new Consulta("getHermanos", "Traer hermanos"));
@@ -178,7 +233,9 @@ public class Operaciones {
         papa2.addHijo(hijo);
         lista.addAll(Arrays.asList(bisa,bisa2,bisa3,bisa4,abue,abue2,abue3,abue4,papa,papa2,tio,tio2,tio3,hijo));
         for (Persona persona : lista) {
-            aux.add(new PersonaDTO(persona.getNombre(),persona.getApellido(), persona.getGenero(),persona.getId()));      
+            PersonaDTO personaDTO = new PersonaDTO();
+            personaDTO.convertir(persona);
+            aux.add(personaDTO);
         }
         setearIdsPersona(lista);
         setearIdsPersonaDTO(aux);
