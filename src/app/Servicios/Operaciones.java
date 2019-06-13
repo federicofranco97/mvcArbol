@@ -3,6 +3,7 @@ package app.Servicios;
 import app.DTOs.PersonaDTO;
 import app.Models.Consulta;
 import app.Models.Persona;
+import app.Models.Seteo;
 import app.Repository.PersonaRepository;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -16,6 +17,7 @@ public class Operaciones {
         generarFamiliaPrueba();
         llenarPaises();
         llenarConsultas();
+        llenarListaComandos();
     }
     @Autowired
     private PersonaRepository perRepo;
@@ -25,6 +27,7 @@ public class Operaciones {
     private ArrayList<String> paisesNatal = new ArrayList<>();
     private ArrayList<String> paisesVive = new ArrayList<>();
     private ArrayList<Consulta> listaConsultas = new ArrayList<>();
+    private ArrayList<Seteo> listaComandos = new ArrayList<>();
     
     public ArrayList<PersonaDTO> getLista() {
        return aux;
@@ -39,6 +42,38 @@ public class Operaciones {
 
     public void setListaConsultas(ArrayList<Consulta> listaConsultas) {
         this.listaConsultas = listaConsultas;
+    }
+
+    public ArrayList<Seteo> getListaComandos() {
+        return listaComandos;
+    }
+
+    public void setListaComandos(ArrayList<Seteo> listaComandos) {
+        this.listaComandos = listaComandos;
+    }
+    
+    public void llenarListaComandos(){
+        listaComandos.add(new Seteo("setPadre", "Setear como padre a"));
+        listaComandos.add(new Seteo("setMadre", "Setear como madre a"));
+        listaComandos.add(new Seteo("setHijo", "Setear como hijo/a a"));
+    }
+    
+    public void setearPadre(PersonaDTO personaDTO,long id){
+        Persona setear=buscarPorId(personaDTO.getId());
+        Persona seteado=buscarPorId(id);
+        setear.setPadre(seteado);
+    }
+    
+    public void setearMadre(PersonaDTO personaDTO,long id){
+        Persona setear=buscarPorId(personaDTO.getId());
+        Persona seteado=buscarPorId(id);
+        setear.setMadre(seteado);
+    }
+    
+    public void agregarHijo(PersonaDTO personaDTO,long id){
+        Persona setear=buscarPorId(personaDTO.getId());
+        Persona seteado=buscarPorId(id);
+        setear.addHijo(seteado);
     }
     
     public ArrayList<PersonaDTO> getHijosDTO(PersonaDTO personaDTO){
