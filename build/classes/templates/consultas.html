@@ -24,7 +24,6 @@
     function hacerConsulta(){
         var consulta=document.getElementById("consultaIn").value;
         var persona=document.getElementById("personaIn").value;
-        var data=consulta+" "+persona;
-        window.open("/resultadoConsulta?data="+data,"_self");
+        window.open("/"+consulta+"?id="+persona,"_self");
     }
 </script>

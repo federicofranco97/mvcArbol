@@ -109,6 +109,19 @@ public class Persona {
         return padre;
     }
 
+    public void setPadre(Persona padre) {
+        if(padre==null)return;
+        this.padre = padre;
+        padre.addHijo(this);
+    }
+
+    public void setMadre(Persona madre) {
+        if(madre==null)return;
+        this.madre = madre;
+        madre.addHijo(this);
+    }
+
+    
     public Persona getMadre() {
         return madre;
     }
