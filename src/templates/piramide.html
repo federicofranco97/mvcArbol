@@ -1,14 +1,50 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-    <head th:replace="layout :: header">
-        <title>Arbol Genealogico</title>
-        <meta charset="UTF-8"></meta>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>     
-    </head>
-    <body class="view">
-        <div th:replace="layout :: menu"></div>
-        <div th:replace="layout :: footer"></div>        
-        
-    </body>
-    
+<html>
+	<head>
+            <meta charset="utf-8"></meta>
+    <title>Piramide poblacional</title>
+	
+		<script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+<style>html, body, #myChart {
+  width:100%;
+  height:100%;
+}
+zing-grid[loading]{height:800px;}</style></head>
+	<body>
+		<div id='myChart'></div>
+	<script>ZC.LICENSE=["b55b025e438fa8a98e32482b5f768ff5"];var myConfig = {
+    "graphset":[
+        {
+            "type":"pop-pyramid",
+            "plot":{
+                "stacked":true
+            },
+            "scale-x":{
+                "values":["0-4","5-9","10-14","15-19","20-24","25-29","30-34","35-39","40-44","45-49","50-54","55-59","60-64","65-69","70-74","75-79","80-84","85-89","90-94","95-99","100 + "]
+            },
+            "scale-y":{
+                "short":true    
+            },
+            "series":[
+                {
+                    "data-side":1,
+                    "background-color":"#007DF0 #0055A4",
+                    "values":[1656154,1787564,1981671,2108575,2403438,2366003,2301402,2519874,3360596,3493473,3050775,2759560,2304444,2426504,2568938,1785638,1447162,1005011,1330870,1130632,1121208]
+                },
+                {
+                    "data-side":2,
+                    "background-color":"#94090D #D40D12",
+                    "values":[1656154,1787564,1981671,2108575,2403438,2366003,2301402,2519874,3360596,3493473,3050775,2759560,2304444,2426504,2568938,1785638,1447162,1005011,1330870,1130632,1121208]
+                }
+            ]
+        }
+    ]
+};
+
+zingchart.render({ 
+	id : 'myChart', 
+	data : myConfig, 
+	height: "100%", 
+	width: "100%" 
+});</script></body>
 </html>
