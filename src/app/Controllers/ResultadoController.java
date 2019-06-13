@@ -22,6 +22,24 @@ public class ResultadoController {
         return vista;        
     }
     
+    @GetMapping("/getPrimos")
+    public ModelAndView mostrarPrimos(@RequestParam("id")long id){
+        ModelAndView vista = new ModelAndView("resultadoConsulta");
+        PersonaDTO aux=operaciones.buscarIdDTO(id);
+        ArrayList<PersonaDTO> aux2=operaciones.getPrimosDTO(aux);
+        vista.addObject("listaPersonas", aux2);
+        return vista;
+    }
+    
+    @GetMapping("/getAbuelos")
+    public ModelAndView mostrarAbuelos(@RequestParam("id")long id){
+        ModelAndView vista = new ModelAndView("resultadoConsulta");
+        PersonaDTO aux=operaciones.buscarIdDTO(id);
+        ArrayList<PersonaDTO> aux2=operaciones.getAbuelosDTO(aux);
+        vista.addObject("listaPersonas", aux2);
+        return vista;
+    }
+    
     @GetMapping("/getTios")
     public ModelAndView mostrarTios(@RequestParam("id")long id){
         ModelAndView vista = new ModelAndView("resultadoConsulta");
