@@ -10,13 +10,22 @@
         <select class="browser-default custom-select form-control consultasSelect" id="personaIn">
                 <option th:each="persona : ${listaPersonas}" th:text="${persona.getNombre()}"  th:value="${persona.getId()}"></option>
         </select>
-        <select class="browser-default custom-select form-control consultasSelect" id="personaIn">
-                <option>Valor</option>
+        <select class="browser-default custom-select form-control consultasSelect" id="consultaIn">
+               <option th:each="opcion : ${listaSeteo}" th:text="${opcion.getDescripcion()}"  th:value="${opcion.getValor()}"></option>
         </select>
-        <select class="browser-default custom-select form-control consultasSelect" id="personaIn">
+        <select class="browser-default custom-select form-control consultasSelect" id="personaOut">
                 <option th:each="persona : ${listaPersonas}" th:text="${persona.getNombre()}"  th:value="${persona.getId()}"></option>
         </select>
-        <button class="btn btn-primary btnConsultar">Setear</button>
+        <button class="btn btn-primary btnConsultar" onclick="setRelacion()()">Setear</button>
         <div th:replace="layout :: footer"></div>
     </body>
 </html>
+<script>
+    function setRelacion(){
+        var seteo=document.getElementById("consultaIn").value;
+        var persona=document.getElementById("personaIn").value;
+        var personaSeteada=document.getElementById("personaOut").value;
+        var data=persona+" "+personaSeteada;
+        window.open("/"+seteo+"?id="+data,"_self");        
+    }
+</script>
