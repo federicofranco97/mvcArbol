@@ -53,6 +53,32 @@ public class Operaciones {
         return list2;
     }
     
+    public ArrayList<PersonaDTO> getHermanosDTO(PersonaDTO personaDTO){
+        Persona aux=buscarPorId(personaDTO.getId()).getPadre();
+        Persona aux3=buscarPorId(personaDTO.getId()).getMadre();
+        ArrayList<Persona> list = aux.getHijos();
+        ArrayList<Persona> list3 = aux3.getHijos();
+        ArrayList<PersonaDTO> list2 = new ArrayList<>();
+        for (Persona persona : list) {
+            PersonaDTO aux2 = new PersonaDTO();
+            aux2.convertir(persona);
+            
+        }
+        for (Persona persona : list3) {
+            PersonaDTO aux2 = new PersonaDTO();
+            aux2.convertir(persona);
+            
+            if(list2.indexOf(aux2)==-1){
+                list2.add(aux2);
+            }
+            
+        }
+        for (int i = 0; i < list2.size(); i++) {
+            if(list2.get(i).getId() == personaDTO.getId())list2.remove(i);
+        }
+        return list2;
+    }
+    
     public void llenarConsultas(){
         listaConsultas.add(new Consulta("getHijos", "Traer hijos"));
         listaConsultas.add(new Consulta("getHermanos", "Traer hermanos"));

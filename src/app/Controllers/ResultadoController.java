@@ -22,6 +22,15 @@ public class ResultadoController {
         return vista;        
     }
     
+    @GetMapping("/getHermanos")
+    public ModelAndView mostrarHermanos(@RequestParam("id")long id){
+        ModelAndView vista = new ModelAndView("resultadoConsulta");
+        PersonaDTO aux=operaciones.buscarIdDTO(id);
+        ArrayList<PersonaDTO> aux2=operaciones.getHermanosDTO(aux);
+        vista.addObject("listaPersonas", aux2);
+        return vista;
+    }
+    
     @GetMapping("/getHijos")
     public ModelAndView mostrarHijos(@RequestParam("id")long id){
         ModelAndView vista = new ModelAndView("resultadoConsulta");
