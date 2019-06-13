@@ -41,6 +41,18 @@ public class Operaciones {
         this.listaConsultas = listaConsultas;
     }
     
+    public ArrayList<PersonaDTO> getHijosDTO(PersonaDTO personaDTO){
+        Persona aux=buscarPorId(personaDTO.getId());
+        ArrayList<Persona> list = aux.getHijos();
+        ArrayList<PersonaDTO> list2 = new ArrayList<>();
+        for (Persona persona : list) {
+            PersonaDTO aux2 = new PersonaDTO();
+            aux2.convertir(persona);
+            list2.add(aux2);
+        }
+        return list2;
+    }
+    
     public void llenarConsultas(){
         listaConsultas.add(new Consulta("getHijos", "Traer hijos"));
         listaConsultas.add(new Consulta("getHermanos", "Traer hermanos"));
@@ -136,6 +148,8 @@ public class Operaciones {
         abue2.addHijos(Arrays.asList(papa,tio, tio2, tio3));
         //Creo los hijos
         Persona hijo = new Persona("Martin","Espinoza",papa,papa2,"m");
+        papa.addHijo(hijo);
+        papa2.addHijo(hijo);
         lista.addAll(Arrays.asList(bisa,bisa2,bisa3,bisa4,abue,abue2,abue3,abue4,papa,papa2,tio,tio2,tio3,hijo));
         for (Persona persona : lista) {
             aux.add(new PersonaDTO(persona.getNombre(),persona.getApellido(), persona.getGenero(),persona.getId()));      
@@ -147,7 +161,9 @@ public class Operaciones {
             personaDTO.setPaisVive("Venezuela");
             personaDTO.setFechaNac(generarFechaRandom());
             personaDTO.setDomicilio("Calle falsa 123");
+            lista.get((int)personaDTO.getId()).actualizar(personaDTO);
         }
+        
         return aux;        
     }
     

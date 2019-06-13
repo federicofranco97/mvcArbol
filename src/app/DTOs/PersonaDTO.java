@@ -1,5 +1,6 @@
 package app.DTOs;
 
+import app.Models.Persona;
 import java.util.Date;
 
 public class PersonaDTO{
@@ -13,6 +14,18 @@ public class PersonaDTO{
     private String paisVive;
     private String domicilio;
     private String fechaNac;
+
+    public PersonaDTO(String nombre, String apellido, long id, String genero, String fechaMuerte, String paisNatal, String paisVive, String domicilio, String fechaNac) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.id = id;
+        this.genero = genero;
+        this.fechaMuerte = fechaMuerte;
+        this.paisNatal = paisNatal;
+        this.paisVive = paisVive;
+        this.domicilio = domicilio;
+        this.fechaNac = fechaNac;
+    }
 
     public PersonaDTO(String nombre, String apellido, String genero,long id) {
         this.nombre = nombre;
@@ -28,7 +41,7 @@ public class PersonaDTO{
         
     }
 
-    private PersonaDTO(){}
+    public PersonaDTO(){}
 
     public void actualizar(PersonaDTO personaDTO){
         this.nombre=personaDTO.getNombre();
@@ -40,6 +53,18 @@ public class PersonaDTO{
         this.paisVive=personaDTO.getPaisVive();
         this.paisNatal=personaDTO.getPaisNatal();
         this.domicilio=personaDTO.getDomicilio();
+    }
+    
+    public void convertir(Persona persona){
+        this.nombre=persona.getNombre();
+        this.apellido=persona.getApellido();
+        this.id=persona.getId();
+        this.genero=persona.getGenero();
+        this.fechaMuerte=persona.getFechaMuerte();
+        this.fechaNac=persona.getFechaNac();
+        this.paisVive=persona.getPaisVive();
+        this.paisNatal=persona.getPaisNatal();
+        this.domicilio=persona.getDomicilio();
     }
     
     public String getFechaMuerte() {
