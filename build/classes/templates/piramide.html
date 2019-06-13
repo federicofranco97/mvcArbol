@@ -1,50 +1,97 @@
 <!DOCTYPE html>
 <html>
-	<head>
-            <meta charset="utf-8"></meta>
-    <title>Piramide poblacional</title>
+    <head>
+        <meta charset="utf-8"></meta>
+        <title>Piramide poblacional</title>
+        <link rel="stylesheet" type="text/css" href="../static/css/style.css"></link>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+    <meta charset="ISO-8859-1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.1.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous" />
+        <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+        <style>html, body, #myChart {
+            width:90%;
+            height:90%;
+            margin-left: 5%;
+            margin-top: 5%;
+            
+        }
+        zing-grid[loading]{height:800px;}
+        </style>
+    </head>
+    <body class="view">
+        <div><nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="width: 1500px; margin-left: -12%; margin-top: -11.8%">
+                <a class="navbar-brand" href="/">Arbol Genealogico   <i class="fas fa-dna fa-1x"></i></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                  <ul class="navbar-nav">
+                    <li class="nav-item">
+                      <a class="nav-link" href="/">Principal</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/consultas">Consultas</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/piramide">Piramide Poblacional</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Acciones
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="/addPersona">Agregar Persona</a>
+                        <a class="dropdown-item" href="#" onclick="swal({title: 'Modificar Persona:',text: 'Para modificar una persona, busca la persona en la lista y clickea el icono de editar!',
+                                    icon: 'info'})">Modificar Persona</a>
+                        <a class="dropdown-item" href="#" onclick="swal({title: 'Eliminar Persona:',text: 'Para eliminar una persona, busca la persona en la lista y clickea el icono de basura!',
+                                    icon: 'info'})">Eliminar Persona</a>
+                        <a class="dropdown-item" href="/setRelaciones">Setear Relaciones</a>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
 	
-		<script src="https://cdn.zingchart.com/zingchart.min.js"></script>
-<style>html, body, #myChart {
-  width:100%;
-  height:100%;
-}
-zing-grid[loading]{height:800px;}</style></head>
-	<body>
-		<div id='myChart'></div>
+	<div id='myChart'></div>
 	<script>ZC.LICENSE=["b55b025e438fa8a98e32482b5f768ff5"];var myConfig = {
-    "graphset":[
-        {
-            "type":"pop-pyramid",
-            "plot":{
+                "graphset":[{
+                "type":"pop-pyramid",
+                "plot":{
                 "stacked":true
-            },
-            "scale-x":{
+                },
+                "scale-x":{
                 "values":["0-4","5-9","10-14","15-19","20-24","25-29","30-34","35-39","40-44","45-49","50-54","55-59","60-64","65-69","70-74","75-79","80-84","85-89","90-94","95-99","100 + "]
-            },
-            "scale-y":{
+                },
+                "scale-y":{
                 "short":true    
-            },
-            "series":[
+                },
+                "series":[
                 {
-                    "data-side":1,
-                    "background-color":"#007DF0 #0055A4",
-                    "values":[1656154,1787564,1981671,2108575,2403438,2366003,2301402,2519874,3360596,3493473,3050775,2759560,2304444,2426504,2568938,1785638,1447162,1005011,1330870,1130632,1121208]
+                "data-side":1,
+                "background-color":"#007DF0 #0055A4",
+                "values":[1656154,1787564,1981671,2108575,2403438,2366003,2301402,2519874,3360596,3493473,3050775,2759560,2304444,2426504,2568938,1785638,1447162,1005011,1330870,1130632,1121208]
                 },
                 {
-                    "data-side":2,
-                    "background-color":"#94090D #D40D12",
-                    "values":[1656154,1787564,1981671,2108575,2403438,2366003,2301402,2519874,3360596,3493473,3050775,2759560,2304444,2426504,2568938,1785638,1447162,1005011,1330870,1130632,1121208]
+                 "data-side":2,
+                 "background-color":"#94090D #D40D12",
+                 "values":[1656154,1787564,1981671,2108575,2403438,2366003,2301402,2519874,3360596,3493473,3050775,2759560,2304444,2426504,2568938,1785638,1447162,1005011,1330870,1130632,1121208]
                 }
-            ]
-        }
-    ]
-};
+                ]
+                            }
+                           ]
+                };
 
-zingchart.render({ 
-	id : 'myChart', 
-	data : myConfig, 
-	height: "100%", 
-	width: "100%" 
-});</script></body>
+                zingchart.render({ 
+                id : 'myChart', 
+                data : myConfig, 
+                height: "100%", 
+                width: "100%" 
+                });
+        
+        </script>
+        
+    </body>
 </html>
